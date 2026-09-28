@@ -1,0 +1,238 @@
+/* ============================================================
+   Process Termination Messages — Dashboard Styles
+   Operating Systems and Systems Programming (25CS2104E)
+   ============================================================ */
+
+/* ---- Reset & Base ---- */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #0f1117;
+    color: #e2e8f0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ---- Header ---- */
+.site-header {
+    background: linear-gradient(135deg, #1a1f35 0%, #0d1b2a 100%);
+    border-bottom: 2px solid #2d3a5a;
+    padding: 28px 40px 24px;
+    text-align: center;
+}
+
+.site-title {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #63b3ed;
+    text-shadow: 0 0 20px rgba(99, 179, 237, 0.35);
+}
+
+.site-subtitle {
+    font-size: 1rem;
+    color: #90cdf4;
+    margin-top: 6px;
+    letter-spacing: 0.5px;
+}
+
+.course-info {
+    font-size: 0.8rem;
+    color: #718096;
+    margin-top: 8px;
+}
+
+/* ---- Main Content ---- */
+.main-content {
+    flex: 1;
+    padding: 30px 40px;
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* ---- Summary Cards ---- */
+.summary-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin-bottom: 30px;
+}
+
+.card {
+    background: #1a2035;
+    border: 1px solid #2d3a5a;
+    border-radius: 10px;
+    padding: 20px 24px;
+    text-align: center;
+    transition: transform 0.15s ease, border-color 0.15s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    border-color: #4a5a8a;
+}
+
+.card-label {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #718096;
+    margin-bottom: 8px;
+}
+
+.card-value {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.card-total   .card-value { color: #63b3ed; }
+.card-running .card-value { color: #f6ad55; }
+.card-completed .card-value { color: #68d391; }
+.card-status  .card-value { font-size: 1rem; color: #90cdf4; margin-top: 4px; }
+
+/* ---- Table Section ---- */
+.table-section {
+    background: #1a2035;
+    border: 1px solid #2d3a5a;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.table-header-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 24px;
+    border-bottom: 1px solid #2d3a5a;
+    background: #151d30;
+}
+
+.table-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #90cdf4;
+    letter-spacing: 0.5px;
+}
+
+.last-updated {
+    font-size: 0.75rem;
+    color: #718096;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+.process-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.84rem;
+}
+
+.process-table thead tr {
+    background: #151d30;
+}
+
+.process-table th {
+    padding: 12px 14px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    color: #90cdf4;
+    border-bottom: 1px solid #2d3a5a;
+    white-space: nowrap;
+}
+
+.process-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid #1e2845;
+    color: #cbd5e0;
+    white-space: nowrap;
+}
+
+.process-table tbody tr:hover {
+    background: #1e2845;
+}
+
+.process-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* ---- Status Badges ---- */
+.badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.badge-running {
+    background: rgba(246, 173, 85, 0.15);
+    color: #f6ad55;
+    border: 1px solid rgba(246, 173, 85, 0.4);
+}
+
+.badge-completed {
+    background: rgba(104, 211, 145, 0.12);
+    color: #68d391;
+    border: 1px solid rgba(104, 211, 145, 0.35);
+}
+
+/* ---- Remaining Time ---- */
+.remaining-running {
+    color: #f6ad55;
+    font-weight: 600;
+}
+
+.remaining-done {
+    color: #68d391;
+}
+
+/* ---- Placeholder ---- */
+.placeholder-msg {
+    text-align: center;
+    color: #4a5568;
+    padding: 40px !important;
+    font-style: italic;
+}
+
+/* ---- Footer ---- */
+.site-footer {
+    background: #0d1117;
+    border-top: 1px solid #2d3a5a;
+    padding: 14px 40px;
+    text-align: center;
+    font-size: 0.75rem;
+    color: #4a5568;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 900px) {
+    .summary-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .main-content {
+        padding: 20px 16px;
+    }
+}
+
+@media (max-width: 500px) {
+    .summary-cards {
+        grid-template-columns: 1fr;
+    }
+    .site-title {
+        font-size: 1.3rem;
+    }
+}
